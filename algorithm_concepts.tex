@@ -1,0 +1,1439 @@
+\documentclass{report}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+\title{Complete Algorithmic Problems Documentation}
+\author{Compiled from Markdown Files}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+\newpage
+
+\chapter{Easy Problems}
+
+\section{Array and String Problems}
+
+\subsection{Two Number Sum}
+\textbf{Problem}: Find two numbers in array that sum to target value.\\
+\textbf{Solution}: Use hash set to store seen numbers, check for complement.\\
+\textbf{Time}: O(n), \textbf{Space}: O(n)\\
+\textbf{Key Insight}: Use hash table for O(n) time, or sort and use two pointers for O(n log n) time.
+
+\subsection{Two Number Sum (Sorted)}
+\textbf{Problem}: Alternative solution using sorted array.\\
+\textbf{Solution}: Use two pointers from ends, move based on sum comparison.\\
+\textbf{Time}: O(n log n), \textbf{Space}: O(1)\\
+\textbf{Key Insight}: Two-pointer technique works well with sorted arrays.
+
+\subsection{Valid Subsequence}
+\textbf{Problem}: Check if sequence is subsequence of array.\\
+\textbf{Solution}: Use pointer to track sequence position, traverse array once.\\
+\textbf{Time}: O(n), \textbf{Space}: O(1)\\
+\textbf{Key Insight}: Single pass with pointer tracking is optimal.
+
+\subsection{Sorted Squared Array}
+\textbf{Problem}: Return sorted array of squares of input array.\\
+\textbf{Solution}: Use two pointers from ends, fill result from largest to smallest.\\
+\textbf{Time}: O(n), \textbf{Space}: O(n)\\
+\textbf{Key Insight}: Largest squares come from largest absolute values at ends.
+
+\subsection{Tournament Winner}
+\textbf{Problem}: Determine tournament winner based on competitions and results.\\
+\textbf{Solution}: Use hash map to track team scores, find maximum.\\
+\textbf{Time}: O(n), \textbf{Space}: O(k)\\
+\textbf{Key Insight}: Hash map for O(1) score updates and lookups.
+
+\subsection{Non-Constructible Change}
+\textbf{Problem}: Find minimum amount of change that cannot be created.\\
+\textbf{Solution}: Sort coins, track current change created, check gaps.\\
+\textbf{Time}: O(n log n), \textbf{Space}: O(1)\\
+\textbf{Key Insight}: If coin > current\_change + 1, we found the gap.
+
+\subsection{Transpose Matrix}
+\textbf{Problem}: Transpose the given matrix.\\
+\textbf{Solution}: Create new matrix with swapped dimensions, fill by swapping indices.\\
+\textbf{Time}: O(n*m), \textbf{Space}: O(n*m)\\
+\textbf{Key Insight}: Swap row and column indices: result[j][i] = matrix[i][j].
+
+\section{Binary Search Tree Problems}
+
+\subsection{Find Closest Value in BST}
+\textbf{Problem}: Find closest value to target in BST.\\
+\textbf{Solution}: Recursive traversal, update closest value, navigate based on target.\\
+\textbf{Time}: O(h), \textbf{Space}: O(h)\\
+\textbf{Key Insight}: Use BST property to eliminate half the tree each step.
+
+\subsection{Branch Sums}
+\textbf{Problem}: Calculate sum of all branches in binary tree.\\
+\textbf{Solution}: Recursive DFS, track running sum, add to result at leaves.\\
+\textbf{Time}: O(n), \textbf{Space}: O(h)\\
+\textbf{Key Insight}: Use recursion to explore all paths to leaves.
+
+\subsection{Node Depths}
+\textbf{Problem}: Calculate sum of depths of all nodes in binary tree.\\
+\textbf{Solution}: Recursive traversal, pass current depth, sum all depths.\\
+\textbf{Time}: O(n), \textbf{Space}: O(h)\\
+\textbf{Key Insight}: Each node's depth = parent's depth + 1.
+
+\section{Expression Tree and Graph Problems}
+
+\subsection{Evaluate Expression Tree}
+\textbf{Problem}: Evaluate a binary expression tree.\\
+\textbf{Solution}: Recursive evaluation, apply operators at internal nodes.\\
+\textbf{Time}: O(n), \textbf{Space}: O(h)\\
+\textbf{Key Insight}: Post-order traversal evaluates expressions correctly.
+
+\subsection{Depth-First Search}
+\textbf{Problem}: Perform DFS on graph and return array of node names.\\
+\textbf{Solution}: Recursive traversal, add current node, process all children.\\
+\textbf{Time}: O(v + e), \textbf{Space}: O(v)\\
+\textbf{Key Insight}: Use recursion to explore all connected nodes.
+
+\section{Greedy Algorithms}
+
+\subsection{Minimum Waiting Time}
+\textbf{Problem}: Calculate minimum total waiting time for queries.\\
+\textbf{Solution}: Sort queries, process shortest first, multiply by remaining queries.\\
+\textbf{Time}: O(n log n), \textbf{Space}: O(1)\\
+\textbf{Key Insight}: Shortest queries should be processed first to minimize waiting.
+
+\subsection{Class Photos}
+\textbf{Problem}: Determine if students can be arranged in two rows for photo.\\
+\textbf{Solution}: Sort both arrays, determine front row, check height constraints.\\
+\textbf{Time}: O(n log n), \textbf{Space}: O(1)\\
+\textbf{Key Insight}: Front row must be entirely shorter than back row.
+
+\subsection{Tandem Bicycle}
+\textbf{Problem}: Calculate total speed of tandem bicycles.\\
+\textbf{Solution}: Sort both arrays, pair based on fastest/slowest preference.\\
+\textbf{Time}: O(n log n), \textbf{Space}: O(1)\\
+\textbf{Key Insight}: For maximum speed, pair fastest with fastest; for minimum, pair fastest with slowest.
+
+\subsection{Optimal Freelancing}
+\textbf{Problem}: Find optimal schedule for freelancing jobs.\\
+\textbf{Solution}: Sort by payment, schedule on latest possible day within deadline.\\
+\textbf{Time}: O(n log n), \textbf{Space}: O(1)\\
+\textbf{Key Insight}: Greedy approach: take highest paying job on latest available day.
+
+\section{Linked List Problems}
+
+\subsection{Remove Duplicates from Linked List}
+\textbf{Problem}: Remove duplicates from linked list.\\
+\textbf{Solution}: Use two pointers, skip duplicates by linking to next distinct node.\\
+\textbf{Time}: O(n), \textbf{Space}: O(1)\\
+\textbf{Key Insight}: In-place removal by updating next pointers.
+
+\subsection{Middle Node}
+\textbf{Problem}: Find middle node of linked list.\\
+\textbf{Solution}: Use two pointers (slow and fast), slow moves at half speed.\\
+\textbf{Time}: O(n), \textbf{Space}: O(1)\\
+\textbf{Key Insight}: Fast pointer reaches end when slow pointer is at middle.
+
+\section{Dynamic Programming}
+
+\subsection{Get Nth Fibonacci}
+\textbf{Problem}: Calculate nth Fibonacci number.\\
+\textbf{Solution}: Iterative approach, track previous two numbers.\\
+\textbf{Time}: O(n), \textbf{Space}: O(1)\\
+\textbf{Key Insight}: Only need to track last two numbers, not entire sequence.
+
+\subsection{Product Sum}
+\textbf{Problem}: Calculate product sum of special array with nested arrays.\\
+\textbf{Solution}: Recursive traversal, multiply by depth level.\\
+\textbf{Time}: O(n), \textbf{Space}: O(d)\\
+\textbf{Key Insight}: Use recursion to handle nested structures, track depth.
+
+\section{Searching and Sorting}
+
+\subsection{Binary Search}
+\textbf{Problem}: Perform binary search to find target in sorted array.\\
+\textbf{Solution}: Divide and conquer, eliminate half the search space each step.\\
+\textbf{Time}: O(log n), \textbf{Space}: O(1)\\
+\textbf{Key Insight}: Halve search space each iteration for logarithmic time.
+
+\subsection{Find Three Largest Numbers}
+\textbf{Problem}: Find three largest numbers in array.\\
+\textbf{Solution}: Track three largest values, update and shift as needed.\\
+\textbf{Time}: O(n), \textbf{Space}: O(1)\\
+\textbf{Key Insight}: Only need to track three values, not entire array.
+
+\subsection{Bubble Sort}
+\textbf{Problem}: Sort array using bubble sort algorithm.\\
+\textbf{Solution}: Compare adjacent elements, swap if needed, repeat until sorted.\\
+\textbf{Time}: O(n²), \textbf{Space}: O(1)\\
+\textbf{Key Insight}: Largest elements "bubble up" to their correct positions.
+
+\subsection{Insertion Sort}
+\textbf{Problem}: Sort array using insertion sort algorithm.\\
+\textbf{Solution}: Build sorted array incrementally, insert each element in correct position.\\
+\textbf{Time}: O(n²), \textbf{Space}: O(1)\\
+\textbf{Key Insight}: Each element is inserted into already sorted portion.
+
+\subsection{Selection Sort}
+\textbf{Problem}: Sort array using selection sort algorithm.\\
+\textbf{Solution}: Find minimum element, swap to front, repeat for unsorted portion.\\
+\textbf{Time}: O(n²), \textbf{Space}: O(1)\\
+\textbf{Key Insight}: Find minimum of unsorted portion and place at beginning.
+
+\section{String Manipulation}
+
+\subsection{Is Palindrome}
+\textbf{Problem}: Check if string is palindrome.\\
+\textbf{Solution}: Use two pointers from ends, compare characters moving inward.\\
+\textbf{Time}: O(n), \textbf{Space}: O(1)\\
+\textbf{Key Insight}: Compare characters from both ends simultaneously.
+
+\subsection{Caesar Cipher Encryptor}
+\textbf{Problem}: Encrypt string using Caesar cipher.\\
+\textbf{Solution}: Shift each character by key, handle wrapping around alphabet.\\
+\textbf{Time}: O(n), \textbf{Space}: O(n)\\
+\textbf{Key Insight}: Use modulo to handle key wrapping: key = key \% 26.
+
+\subsection{Run-Length Encoding}
+\textbf{Problem}: Encode string using run-length encoding.\\
+\textbf{Solution}: Count consecutive characters, encode as count + character.\\
+\textbf{Time}: O(n), \textbf{Space}: O(n)\\
+\textbf{Key Insight}: Track current character and count, reset when character changes.
+
+\subsection{Common Characters}
+\textbf{Problem}: Find characters common to all strings.\\
+\textbf{Solution}: Track minimum count of each character across all strings.\\
+\textbf{Time}: O(n*m), \textbf{Space}: O(c)\\
+\textbf{Key Insight}: Character must appear in all strings with minimum frequency.
+
+\subsection{Generate Document}
+\textbf{Problem}: Check if document can be generated from characters.\\
+\textbf{Solution}: Count available characters, check if sufficient for document.\\
+\textbf{Time}: O(n + m), \textbf{Space}: O(c)\\
+\textbf{Key Insight}: Use hash map to track character frequencies.
+
+\subsection{First Non-Repeating Character}
+\textbf{Problem}: Find first non-repeating character in string.\\
+\textbf{Solution}: Count character frequencies, find first with count 1.\\
+\textbf{Time}: O(n), \textbf{Space}: O(1)\\
+\textbf{Key Insight}: Two-pass approach: count frequencies, then find first unique.
+
+\subsection{Semordnilap}
+\textbf{Problem}: Find all semordnilap pairs (words that are reverse of each other).\\
+\textbf{Solution}: Use hash set, check if reverse of each word exists.\\
+\textbf{Time}: O(n*m), \textbf{Space}: O(n)\\
+\textbf{Key Insight}: Check if reverse of each word exists in the set.
+
+\chapter{Medium Problems}
+
+\section{Array Algorithms}
+
+\subsection{Three Number Sum}
+\textbf{Problem}: Find all triplets in array that sum to target value.\\
+\textbf{Solution}: Sort array, use three pointers (one fixed, two moving), eliminate duplicates.\\
+\textbf{Time}: O(n²), \textbf{Space}: O(n)\\
+\textbf{Key Insight}: Use sorting and two-pointer technique to avoid O(n³) complexity.
+
+\subsection{Smallest Difference}
+\textbf{Problem}: Find pair of numbers (one from each array) with smallest absolute difference.\\
+\textbf{Solution}: Sort both arrays, use two pointers to find closest pair.\\
+\textbf{Time}: O(n log n + m log m), \textbf{Space}: O(1)\\
+\textbf{Key Insight}: Moving larger pointer can only increase difference.
+
+\subsection{Move Element to End}
+\textbf{Problem}: Move all instances of specified integer to end of array.\\
+\textbf{Solution}: Use two pointers from ends, swap when left pointer finds target element.\\
+\textbf{Time}: O(n), \textbf{Space}: O(1)\\
+\textbf{Key Insight}: Use two pointers to avoid extra space.
+
+\subsection{Monotonic Array}
+\textbf{Problem}: Check if array is entirely non-increasing or non-decreasing.\\
+\textbf{Solution}: Single pass, track direction, check for direction breaks.\\
+\textbf{Time}: O(n), \textbf{Space}: O(1)\\
+\textbf{Key Insight}: Track direction and check for breaks.
+
+\subsection{Spiral Traverse}
+\textbf{Problem}: Traverse 2D array in spiral order starting from top-left.\\
+\textbf{Solution}: Use four boundary variables, traverse in four directions, update boundaries.\\
+\textbf{Time}: O(n), \textbf{Space}: O(n)\\
+\textbf{Key Insight}: Use four boundary variables to track spiral pattern.
+
+\subsection{Longest Peak}
+\textbf{Problem}: Find length of longest peak (strictly increasing then strictly decreasing).\\
+\textbf{Solution}: Find peak points, expand left and right to find full peak length.\\
+\textbf{Time}: O(n), \textbf{Space}: O(1)\\
+\textbf{Key Insight}: Expand from peak points to find full peak boundaries.
+
+\subsection{Array of Products}
+\textbf{Problem}: Return array where each element is product of every other number.\\
+\textbf{Solution}: Two-pass algorithm - left products then right products.\\
+\textbf{Time}: O(n), \textbf{Space}: O(n)\\
+\textbf{Key Insight}: Use two passes to avoid division and handle zeros.
+
+\subsection{First Duplicate Value}
+\textbf{Problem}: Find first duplicate value in array where values are between 1 and n.\\
+\textbf{Solution}: Use array as hash set, mark visited indices as negative.\\
+\textbf{Time}: O(n), \textbf{Space}: O(1)\\
+\textbf{Key Insight}: Use array indices as hash table, mark visited as negative.
+
+\subsection{Merge Overlapping Intervals}
+\textbf{Problem}: Merge overlapping intervals in list of intervals.\\
+\textbf{Solution}: Sort intervals, merge overlapping ones sequentially.\\
+\textbf{Time}: O(n log n), \textbf{Space}: O(n)\\
+\textbf{Key Insight}: Sort first, then merge overlapping intervals sequentially.
+
+\subsection{Best Seat}
+\textbf{Problem}: Find best seat in row where 0=empty, 1=occupied. Best seat maximizes distance to closest person.\\
+\textbf{Solution}: Find largest consecutive empty section, sit in middle.\\
+\textbf{Time}: O(n), \textbf{Space}: O(1)\\
+\textbf{Key Insight}: Find largest consecutive empty section and sit in middle.
+
+\subsection{Zero Sum Subarray}
+\textbf{Problem}: Check if there exists a subarray that sums to zero.\\
+\textbf{Solution}: Use hash table to store prefix sums.\\
+\textbf{Time}: O(n), \textbf{Space}: O(n)\\
+\textbf{Key Insight}: If same prefix sum appears twice, subarray between them sums to zero.
+
+\subsection{Missing Numbers}
+\textbf{Problem}: Find all missing numbers in array containing numbers from 1 to n.\\
+\textbf{Solution}: Use array as hash set, mark existing numbers as negative.\\
+\textbf{Time}: O(n), \textbf{Space}: O(1)\\
+\textbf{Key Insight}: Use array indices to track which numbers exist.
+
+\subsection{Majority Element}
+\textbf{Problem}: Find the majority element in array (appears more than n/2 times).\\
+\textbf{Solution}: Boyer-Moore voting algorithm.\\
+\textbf{Time}: O(n), \textbf{Space}: O(1)\\
+\textbf{Key Insight}: Cancel out pairs of different elements, remaining element is majority.
+
+\subsection{Sweet and Savory}
+\textbf{Problem}: Find best sweet and savory dish combination that comes closest to target.\\
+\textbf{Solution}: Sort dishes by type, use two pointers to find optimal pair.\\
+\textbf{Time}: O(n log n), \textbf{Space}: O(n)\\
+\textbf{Key Insight}: Separate sweet and savory dishes, use two-pointer technique.
+
+\section{Binary Search Tree Algorithms}
+
+\subsection{Validate BST}
+\textbf{Problem}: Check if binary tree is valid Binary Search Tree.\\
+\textbf{Solution}: Recursive validation with min/max bounds.\\
+\textbf{Time}: O(n), \textbf{Space}: O(h)\\
+\textbf{Key Insight}: Pass valid range to each subtree recursively.
+
+\subsection{BST Traversal}
+\textbf{Problem}: Perform different types of tree traversals.\\
+\textbf{Solution}: Inorder (Left-Root-Right), Preorder (Root-Left-Right), Postorder (Left-Right-Root).\\
+\textbf{Time}: O(n), \textbf{Space}: O(n)\\
+\textbf{Key Insight}: Different traversal orders visit nodes in different sequences.
+
+\subsection{Min Height BST}
+\textbf{Problem}: Construct BST with minimum height from sorted array.\\
+\textbf{Solution}: Use middle element as root, recursively build subtrees.\\
+\textbf{Time}: O(n), \textbf{Space}: O(n)\\
+\textbf{Key Insight}: Use middle element as root to ensure balanced tree.
+
+\subsection{Find Kth Largest Value in BST}
+\textbf{Problem}: Find kth largest value in Binary Search Tree.\\
+\textbf{Solution}: Reverse inorder traversal, stop after k elements.\\
+\textbf{Time}: O(h + k), \textbf{Space}: O(h)\\
+\textbf{Key Insight}: Reverse inorder traversal gives values in descending order.
+
+\subsection{Reconstruct BST}
+\textbf{Problem}: Reconstruct BST from preorder traversal.\\
+\textbf{Solution}: First element is root, find split point for left/right subtrees.\\
+\textbf{Time}: O(n), \textbf{Space}: O(n)\\
+\textbf{Key Insight}: Preorder gives root first, then left subtree, then right subtree.
+
+\subsection{Invert Binary Tree}
+\textbf{Problem}: Invert a binary tree (mirror image).\\
+\textbf{Solution}: Recursively swap left and right children.\\
+\textbf{Time}: O(n), \textbf{Space}: O(h)\\
+\textbf{Key Insight}: Swap children at each node recursively.
+
+\subsection{Binary Tree Diameter}
+\textbf{Problem}: Find the diameter of a binary tree (longest path between any two nodes).\\
+\textbf{Solution}: Calculate height and update diameter at each node.\\
+\textbf{Time}: O(n), \textbf{Space}: O(h)\\
+\textbf{Key Insight}: Diameter = max(left\_height + right\_height) for any node.
+
+\subsection{Find Successor}
+\textbf{Problem}: Find the in-order successor of a given node in a BST.\\
+\textbf{Solution}: If right child exists, find leftmost node in right subtree. Otherwise, find closest ancestor where node is in left subtree.\\
+\textbf{Time}: O(h), \textbf{Space}: O(1)\\
+\textbf{Key Insight}: Successor is either leftmost node in right subtree or closest ancestor.
+
+\subsection{Height Balanced Binary Tree}
+\textbf{Problem}: Check if a binary tree is height-balanced.\\
+\textbf{Solution}: Calculate height and check balance at each node.\\
+\textbf{Time}: O(n), \textbf{Space}: O(h)\\
+\textbf{Key Insight}: Tree is balanced if left and right subtrees are balanced and height difference $\le$ 1.
+
+\subsection{Merge Binary Trees}
+\textbf{Problem}: Merge two binary trees by adding corresponding nodes.\\
+\textbf{Solution}: Recursively merge corresponding nodes.\\
+\textbf{Time}: O(min(n1, n2)), \textbf{Space}: O(min(h1, h2))\\
+\textbf{Key Insight}: Add values of corresponding nodes, handle null nodes.
+
+\subsection{Symmetrical Tree}
+\textbf{Problem}: Check if a binary tree is symmetrical (mirror image of itself).\\
+\textbf{Solution}: Compare left and right subtrees recursively.\\
+\textbf{Time}: O(n), \textbf{Space}: O(h)\\
+\textbf{Key Insight}: Tree is symmetrical if left and right subtrees are mirrored.
+
+\subsection{Split Binary Tree}
+\textbf{Problem}: Check if a binary tree can be split into two trees with equal sums.\\
+\textbf{Solution}: Calculate total sum, check if any subtree has half the total sum.\\
+\textbf{Time}: O(n), \textbf{Space}: O(h)\\
+\textbf{Key Insight}: If total sum is odd, cannot split. Otherwise, look for subtree with half sum.
+
+\section{Dynamic Programming}
+
+\subsection{Max Subset Sum No Adjacent}
+\textbf{Problem}: Find maximum sum of non-adjacent elements in array.\\
+\textbf{Solution}: DP with formula: current = max(include, exclude).\\
+\textbf{Time}: O(n), \textbf{Space}: O(1)\\
+\textbf{Key Insight}: At each step, choose between including or excluding current element.
+
+\subsection{Number of Ways to Make Change}
+\textbf{Problem}: Find number of ways to make change for amount n using given denominations.\\
+\textbf{Solution}: DP with formula: ways[amount] += ways[amount - denom].\\
+\textbf{Time}: O(nd), \textbf{Space}: O(n)\\
+\textbf{Key Insight}: Use DP to build up solutions from smaller amounts.
+
+\subsection{Min Number of Coins for Change}
+\textbf{Problem}: Find minimum number of coins needed to make change.\\
+\textbf{Solution}: DP with formula: min(current, previous + 1).\\
+\textbf{Time}: O(nd), \textbf{Space}: O(n)\\
+\textbf{Key Insight}: Use DP to find minimum coins for each amount.
+
+\subsection{Levenshtein Distance}
+\textbf{Problem}: Calculate edit distance between two strings.\\
+\textbf{Solution}: DP matrix with min(delete, insert, replace) operations.\\
+\textbf{Time}: O(mn), \textbf{Space}: O(mn)\\
+\textbf{Key Insight}: Use DP to find minimum operations to transform one string to another.
+
+\subsection{Number of Ways to Traverse Graph}
+\textbf{Problem}: Find number of ways to traverse graph from top-left to bottom-right.\\
+\textbf{Solution}: DP with formula: dp[i][j] = dp[i-1][j] + dp[i][j-1].\\
+\textbf{Time}: O(wh), \textbf{Space}: O(wh)\\
+\textbf{Key Insight}: Each cell can be reached from above or left.
+
+\subsection{Kadane's Algorithm}
+\textbf{Problem}: Find the maximum subarray sum.\\
+\textbf{Solution}: Keep track of current and global maximum.\\
+\textbf{Time}: O(n), \textbf{Space}: O(1)\\
+\textbf{Key Insight}: Reset current sum to current element if it becomes negative.
+
+\section{Graph Algorithms}
+
+\subsection{Single Cycle Check}
+\textbf{Problem}: Check if single cycle exists in array where each element represents a jump.\\
+\textbf{Solution}: Follow jumps, track visited nodes, check if back to start.\\
+\textbf{Time}: O(n), \textbf{Space}: O(n)\\
+\textbf{Key Insight}: Single cycle visits each node exactly once and returns to start.
+
+\subsection{River Sizes}
+\textbf{Problem}: Find sizes of all rivers in matrix where 1=water, 0=land.\\
+\textbf{Solution}: DFS to find connected components of water cells.\\
+\textbf{Time}: O(wh), \textbf{Space}: O(wh)\\
+\textbf{Key Insight}: Use DFS to find connected components of water cells.
+
+\subsection{Remove Islands}
+\textbf{Problem}: Remove islands (1s not connected to border) from matrix.\\
+\textbf{Solution}: Mark all 1s connected to border, remove unmarked 1s.\\
+\textbf{Time}: O(wh), \textbf{Space}: O(wh)\\
+\textbf{Key Insight}: Mark all 1s connected to border, then remove unmarked 1s.
+
+\subsection{Cycle in Graph}
+\textbf{Problem}: Check if cycle exists in directed graph.\\
+\textbf{Solution}: DFS with recursion stack to detect back edges.\\
+\textbf{Time}: O(V + E), \textbf{Space}: O(V)\\
+\textbf{Key Insight}: Use recursion stack to detect back edges in DFS.
+
+\subsection{Minimum Passes of Matrix}
+\textbf{Problem}: Find minimum passes needed to convert all negative numbers to positive.\\
+\textbf{Solution}: Simulate conversion process pass by pass.\\
+\textbf{Time}: O(wh * passes), \textbf{Space}: O(wh)\\
+\textbf{Key Insight}: Simulate the conversion process pass by pass.
+
+\subsection{Two Colorable}
+\textbf{Problem}: Check if a graph is two-colorable (bipartite).\\
+\textbf{Solution}: DFS with color assignment, check for conflicts.\\
+\textbf{Time}: O(V + E), \textbf{Space}: O(V)\\
+\textbf{Key Insight}: Use DFS to assign colors and check for conflicts.
+
+\subsection{Task Assignment}
+\textbf{Problem}: Assign tasks to workers optimally.\\
+\textbf{Solution}: Sort tasks, pair fastest with slowest.\\
+\textbf{Time}: O(n log n), \textbf{Space}: O(n)\\
+\textbf{Key Insight}: Pair fastest worker with slowest task to minimize total time.
+
+\subsection{Valid Starting City}
+\textbf{Problem}: Find a valid starting city for a circular route.\\
+\textbf{Solution}: Track fuel remaining, reset when negative.\\
+\textbf{Time}: O(n), \textbf{Space}: O(1)\\
+\textbf{Key Insight}: Start from city where fuel remaining becomes negative.
+
+\subsection{Stable Internships}
+\textbf{Problem}: Find stable internship assignments using Gale-Shapley algorithm.\\
+\textbf{Solution}: Use Gale-Shapley algorithm for stable matching.\\
+\textbf{Time}: O(n²), \textbf{Space}: O(n²)\\
+\textbf{Key Insight}: Use Gale-Shapley algorithm for stable matching.
+
+\section{Heap Algorithms}
+
+\subsection{Min Heap Construction}
+\textbf{Problem}: Build a min heap from an array.\\
+\textbf{Solution}: Sift down from last parent to root.\\
+\textbf{Time}: O(n), \textbf{Space}: O(1)\\
+\textbf{Key Insight}: Start from last parent and sift down each node.
+
+\subsection{Min Heap Operations}
+\textbf{Problem}: Implement min heap operations (insert, remove, peek).\\
+\textbf{Solution}: Sift up for insert, sift down for remove.\\
+\textbf{Time}: O(log n) per operation, \textbf{Space}: O(1)\\
+\textbf{Key Insight}: Maintain heap property with sift up/down operations.
+
+\section{Linked List Algorithms}
+
+\subsection{Remove Kth Node From End}
+\textbf{Problem}: Remove the kth node from the end of a linked list.\\
+\textbf{Solution}: Use two pointers, fast pointer moves k steps ahead.\\
+\textbf{Time}: O(n), \textbf{Space}: O(1)\\
+\textbf{Key Insight}: Use two pointers to find kth node from end in one pass.
+
+\subsection{Sum of Linked Lists}
+\textbf{Problem}: Add two numbers represented as linked lists.\\
+\textbf{Solution}: Add corresponding digits, handle carry.\\
+\textbf{Time}: O(max(n, m)), \textbf{Space}: O(max(n, m))\\
+\textbf{Key Insight}: Add digits from right to left, handle carry.
+
+\subsection{Merging Linked Lists}
+\textbf{Problem}: Find the intersection point of two linked lists.\\
+\textbf{Solution}: Find lengths, align pointers, find intersection.\\
+\textbf{Time}: O(n + m), \textbf{Space}: O(1)\\
+\textbf{Key Insight}: Align pointers by adjusting for length difference.
+
+\section{Recursion and Backtracking}
+
+\subsection{Permutations}
+\textbf{Problem}: Generate all permutations of an array.\\
+\textbf{Solution}: Recursive approach, choose each element as first.\\
+\textbf{Time}: O(n!), \textbf{Space}: O(n!)\\
+\textbf{Key Insight}: Use recursion to build permutations by choosing each element as first.
+
+\subsection{Powerset}
+\textbf{Problem}: Generate all subsets (powerset) of an array.\\
+\textbf{Solution}: Backtracking approach, include/exclude each element.\\
+\textbf{Time}: O(2\textasciicircum n), \textbf{Space}: O(2\textasciicircum n)\\
+\textbf{Key Insight}: Use backtracking to explore all possible combinations.
+
+\subsection{Phone Number Mnemonics}
+\textbf{Problem}: Generate all possible mnemonics for a phone number.\\
+\textbf{Solution}: Backtracking with digit-to-letter mapping.\\
+\textbf{Time}: O(4\textasciicircum n * n), \textbf{Space}: O(4\textasciicircum n * n)\\
+\textbf{Key Insight}: Use backtracking to explore all letter combinations for each digit.
+
+\subsection{Staircase Traversal}
+\textbf{Problem}: Find number of ways to climb staircase with given height and max steps.\\
+\textbf{Solution}: Recursive approach, try all possible step sizes.\\
+\textbf{Time}: O(k\textasciicircum n), \textbf{Space}: O(n)\\
+\textbf{Key Insight}: Use recursion to explore all possible step combinations.
+
+\subsection{Blackjack Probability}
+\textbf{Problem}: Calculate probability of reaching target in blackjack.\\
+\textbf{Solution}: Recursive probability calculation with memoization.\\
+\textbf{Time}: O(target), \textbf{Space}: O(target)\\
+\textbf{Key Insight}: Use recursion with memoization to calculate probabilities.
+
+\subsection{Reveal Minesweeper}
+\textbf{Problem}: Reveal cells in minesweeper board starting from given position.\\
+\textbf{Solution}: BFS to reveal connected safe cells.\\
+\textbf{Time}: O(wh), \textbf{Space}: O(wh)\\
+\textbf{Key Insight}: Use BFS to reveal all connected safe cells.
+
+\subsection{Search in Sorted Matrix}
+\textbf{Problem}: Search for target value in sorted matrix.\\
+\textbf{Solution}: Start from top-right, eliminate half the search space each step.\\
+\textbf{Time}: O(n + m), \textbf{Space}: O(1)\\
+\textbf{Key Insight}: Use matrix properties to eliminate half the search space each step.
+
+\subsection{Three Number Sort}
+\textbf{Problem}: Sort array containing only three distinct values according to given order.\\
+\textbf{Solution}: Three pointers to partition array in one pass.\\
+\textbf{Time}: O(n), \textbf{Space}: O(1)\\
+\textbf{Key Insight}: Use three pointers to partition array in one pass.
+
+\section{Stack Algorithms}
+
+\subsection{Min Max Stack}
+\textbf{Problem}: Implement stack that tracks minimum and maximum values.\\
+\textbf{Solution}: Use auxiliary stack to track min/max at each push.\\
+\textbf{Time}: O(1) all operations, \textbf{Space}: O(n)\\
+\textbf{Key Insight}: Maintain auxiliary stack with min/max information.
+
+\subsection{Balanced Brackets}
+\textbf{Problem}: Check if a string has balanced brackets.\\
+\textbf{Solution}: Use stack to match opening and closing brackets.\\
+\textbf{Time}: O(n), \textbf{Space}: O(n)\\
+\textbf{Key Insight}: Use stack to match opening and closing brackets.
+
+\subsection{Sunset Views}
+\textbf{Problem}: Find buildings that have a sunset view.\\
+\textbf{Solution}: Use stack to track buildings with sunset view.\\
+\textbf{Time}: O(n), \textbf{Space}: O(n)\\
+\textbf{Key Insight}: Use stack to track buildings with sunset view.
+
+\subsection{Best Digits}
+\textbf{Problem}: Find the best digits by removing k digits to get the largest possible number.\\
+\textbf{Solution}: Use stack to maintain largest digits.\\
+\textbf{Time}: O(n), \textbf{Space}: O(n)\\
+\textbf{Key Insight}: Use stack to maintain largest digits.
+
+\subsection{Sort Stack}
+\textbf{Problem}: Sort a stack using only stack operations.\\
+\textbf{Solution}: Use temporary stack to sort elements.\\
+\textbf{Time}: O(n²), \textbf{Space}: O(n)\\
+\textbf{Key Insight}: Use temporary stack to sort elements.
+
+\subsection{Next Greater Element}
+\textbf{Problem}: Find the next greater element for each element in the array.\\
+\textbf{Solution}: Use stack to find next greater element.\\
+\textbf{Time}: O(n), \textbf{Space}: O(n)\\
+\textbf{Key Insight}: Use stack to find next greater element.
+
+\subsection{Reverse Polish Notation}
+\textbf{Problem}: Evaluate a reverse polish notation expression.\\
+\textbf{Solution}: Use stack to evaluate postfix expression.\\
+\textbf{Time}: O(n), \textbf{Space}: O(n)\\
+\textbf{Key Insight}: Use stack to evaluate postfix expression.
+
+\subsection{Colliding Asteroids}
+\textbf{Problem}: Simulate asteroid collisions.\\
+\textbf{Solution}: Use stack to simulate collisions.\\
+\textbf{Time}: O(n), \textbf{Space}: O(n)\\
+\textbf{Key Insight}: Use stack to simulate collisions.
+
+\section{String Algorithms}
+
+\subsection{Longest Palindromic Substring}
+\textbf{Problem}: Find the longest palindromic substring in a string.\\
+\textbf{Solution}: Expand around center for each character.\\
+\textbf{Time}: O(n²), \textbf{Space}: O(1)\\
+\textbf{Key Insight}: Expand around center for each character.
+
+\subsection{Group Anagrams}
+\textbf{Problem}: Group words that are anagrams of each other.\\
+\textbf{Solution}: Use sorted word as key in hash map.\\
+\textbf{Time}: O(n * k * log k), \textbf{Space}: O(n * k)\\
+\textbf{Key Insight}: Use sorted word as key in hash map.
+
+\subsection{Valid IP Addresses}
+\textbf{Problem}: Generate all valid IP addresses from a string of digits.\\
+\textbf{Solution}: Backtracking with IP validation.\\
+\textbf{Time}: O(1), \textbf{Space}: O(1)\\
+\textbf{Key Insight}: Use backtracking with IP validation.
+
+\subsection{Reverse Words in String}
+\textbf{Problem}: Reverse the order of words in a string.\\
+\textbf{Solution}: Split by spaces and reverse.\\
+\textbf{Time}: O(n), \textbf{Space}: O(n)\\
+\textbf{Key Insight}: Split by spaces and reverse.
+
+\subsection{Minimum Characters for Words}
+\textbf{Problem}: Find minimum characters needed to write all words.\\
+\textbf{Solution}: Find maximum count of each character across all words.\\
+\textbf{Time}: O(n * k), \textbf{Space}: O(c)\\
+\textbf{Key Insight}: Find maximum count of each character across all words.
+
+\subsection{One Edit}
+\textbf{Problem}: Check if two strings are one edit away from each other.\\
+\textbf{Solution}: Compare strings character by character.\\
+\textbf{Time}: O(n), \textbf{Space}: O(1)\\
+\textbf{Key Insight}: Compare strings character by character.
+
+\section{Trie Algorithms}
+
+\subsection{Suffix Trie Construction}
+\textbf{Problem}: Build a suffix trie from a string.\\
+\textbf{Solution}: Insert all suffixes into trie.\\
+\textbf{Time}: O(n²), \textbf{Space}: O(n²)\\
+\textbf{Key Insight}: Insert all suffixes into trie.
+
+\subsection{Suffix Trie Search}
+\textbf{Problem}: Check if string is contained in the trie.\\
+\textbf{Solution}: Traverse trie following string characters.\\
+\textbf{Time}: O(m), \textbf{Space}: O(1)\\
+\textbf{Key Insight}: Traverse trie following string characters.
+
+\chapter{Advanced Problems}
+
+\section{Array and Matrix Problems}
+
+\subsection{Four Number Sum}
+\textbf{Problem}: Find all quadruplets in array that sum to target value.\\
+\textbf{Solution}: Use hash table to store pairs and their sums, find complements.\\
+\textbf{Time}: O(n²) average, O(n³) worst, \textbf{Space}: O(n²)\\
+\textbf{Key Insight}: Store pair sums in hash table, look for complements to form quadruplets.
+
+\subsection{Subarray Sort}
+\textbf{Problem}: Find smallest subarray that needs sorting to make entire array sorted.\\
+\textbf{Solution}: Find min/max values out of order, determine boundaries.\\
+\textbf{Time}: O(n), \textbf{Space}: O(1)\\
+\textbf{Key Insight}: Elements out of order determine the boundaries of subarray to sort.
+
+\subsection{Largest Range}
+\textbf{Problem}: Find largest range of consecutive integers in array.\\
+\textbf{Solution}: Use hash table to track visited numbers, expand from each number.\\
+\textbf{Time}: O(n), \textbf{Space}: O(n)\\
+\textbf{Key Insight}: Use hash table for O(1) lookups, expand left and right from each number.
+
+\subsection{Min Rewards}
+\textbf{Problem}: Distribute minimum rewards based on scores (higher scores get more rewards).\\
+\textbf{Solution}: Two-pass algorithm - left to right, then right to left.\\
+\textbf{Time}: O(n), \textbf{Space}: O(n)\\
+\textbf{Key Insight}: Two passes ensure all constraints are satisfied.
+
+\subsection{Zigzag Traverse}
+\textbf{Problem}: Traverse 2D array in zigzag pattern.\\
+\textbf{Solution}: Track direction and handle edge cases at boundaries.\\
+\textbf{Time}: O(n), \textbf{Space}: O(n)\\
+\textbf{Key Insight}: Change direction when hitting array boundaries.
+
+\subsection{Longest Subarray with Sum}
+\textbf{Problem}: Find longest subarray that sums to target.\\
+\textbf{Solution}: Use hash table to store cumulative sums.\\
+\textbf{Time}: O(n), \textbf{Space}: O(n)\\
+\textbf{Key Insight}: If sum[i] - sum[j] = target, subarray j+1 to i sums to target.
+
+\subsection{Count Squares}
+\textbf{Problem}: Count number of squares of 1s in binary matrix.\\
+\textbf{Solution}: DP - each cell represents size of largest square ending there.\\
+\textbf{Time}: O(m*n), \textbf{Space}: O(m*n)\\
+\textbf{Key Insight}: DP[i][j] = min(DP[i-1][j], DP[i][j-1], DP[i-1][j-1]) + 1.
+
+\subsection{Maximum Sum Submatrix}
+\textbf{Problem}: Find maximum sum of submatrix of given size.\\
+\textbf{Solution}: 2D sliding window with prefix sums.\\
+\textbf{Time}: O(m*n), \textbf{Space}: O(m*n)\\
+\textbf{Key Insight}: Use prefix sums to calculate submatrix sums in O(1).
+
+\subsection{Largest Rectangle Under Skyline}
+\textbf{Problem}: Find area of largest rectangle under skyline.\\
+\textbf{Solution}: Stack-based approach to track increasing heights.\\
+\textbf{Time}: O(n), \textbf{Space}: O(n)\\
+\textbf{Key Insight}: Use stack to maintain increasing heights, calculate area when popping.
+
+\section{Tree and BST Problems}
+
+\subsection{Same BSTs}
+\textbf{Problem}: Check if two arrays represent same BST.\\
+\textbf{Solution}: Recursive comparison with BST property.\\
+\textbf{Time}: O(n²) worst, \textbf{Space}: O(d)\\
+\textbf{Key Insight}: Compare roots, then recursively compare left and right subtrees.
+
+\subsection{Validate Three Nodes}
+\textbf{Problem}: Check if node\_two is descendant of node\_one and node\_three is descendant of node\_two.\\
+\textbf{Solution}: Check both directions of the relationship.\\
+\textbf{Time}: O(h), \textbf{Space}: O(1)\\
+\textbf{Key Insight}: Search from both nodes to find the relationship.
+
+\subsection{Repair BST}
+\textbf{Problem}: Repair BST where exactly two nodes have been swapped.\\
+\textbf{Solution}: Inorder traversal to find swapped nodes.\\
+\textbf{Time}: O(n), \textbf{Space}: O(h)\\
+\textbf{Key Insight}: Inorder traversal reveals swapped nodes in sorted sequence.
+
+\subsection{Sum BSTs}
+\textbf{Problem}: Calculate sum of all values in BST.\\
+\textbf{Solution}: Recursive traversal.\\
+\textbf{Time}: O(n), \textbf{Space}: O(h)\\
+\textbf{Key Insight}: Simple recursive sum of current node and subtrees.
+
+\subsection{Max Path Sum in Binary Tree}
+\textbf{Problem}: Find maximum path sum in binary tree.\\
+\textbf{Solution}: Recursive DFS with path tracking.\\
+\textbf{Time}: O(n), \textbf{Space}: O(h)\\
+\textbf{Key Insight}: At each node, consider path through node or max of left/right subtree.
+
+\subsection{Find Nodes Distance K}
+\textbf{Problem}: Find all nodes at distance k from target node.\\
+\textbf{Solution}: BFS from target with distance tracking.\\
+\textbf{Time}: O(n), \textbf{Space}: O(n)\\
+\textbf{Key Insight}: Build parent map, use BFS to explore all directions.
+
+\section{Dynamic Programming}
+
+\subsection{Max Sum Increasing Subsequence}
+\textbf{Problem}: Find maximum sum of increasing subsequence.\\
+\textbf{Solution}: DP with binary search optimization.\\
+\textbf{Time}: O(n log n), \textbf{Space}: O(n)\\
+\textbf{Key Insight}: Use binary search to find optimal position for each element.
+
+\subsection{Longest Common Subsequence}
+\textbf{Problem}: Find length of longest common subsequence between two strings.\\
+\textbf{Solution}: Dynamic programming matrix.\\
+\textbf{Time}: O(m*n), \textbf{Space}: O(m*n)\\
+\textbf{Key Insight}: DP[i][j] = max(DP[i-1][j], DP[i][j-1]) or DP[i-1][j-1] + 1 if match.
+
+\subsection{Min Number of Jumps}
+\textbf{Problem}: Find minimum jumps needed to reach end of array.\\
+\textbf{Solution}: Greedy algorithm with reach tracking.\\
+\textbf{Time}: O(n), \textbf{Space}: O(1)\\
+\textbf{Key Insight}: Track current reach and max reach, jump when current reach is exhausted.
+
+\subsection{Knapsack Problem}
+\textbf{Problem}: Solve 0/1 knapsack problem.\\
+\textbf{Solution}: Dynamic programming.\\
+\textbf{Time}: O(n*capacity), \textbf{Space}: O(n*capacity)\\
+\textbf{Key Insight}: DP[i][w] = max(DP[i-1][w], DP[i-1][w-weight[i]] + value[i]).
+
+\subsection{Disk Stacking}
+\textbf{Problem}: Find maximum height by stacking disks.\\
+\textbf{Solution}: DP with sorting.\\
+\textbf{Time}: O(n²), \textbf{Space}: O(n)\\
+\textbf{Key Insight}: Sort by dimensions, use DP to find optimal stacking.
+
+\subsection{Numbers in Pi}
+\textbf{Problem}: Find minimum spaces needed to separate pi into valid numbers.\\
+\textbf{Solution}: DP with memoization.\\
+\textbf{Time}: O(n³ + m), \textbf{Space}: O(n + m)\\
+\textbf{Key Insight}: Try all possible prefixes, memoize results.
+
+\subsection{Maximize Expression}
+\textbf{Problem}: Maximize A - B + C - D where A,B,C,D are array elements.\\
+\textbf{Solution}: DP with state tracking.\\
+\textbf{Time}: O(n), \textbf{Space}: O(1)\\
+\textbf{Key Insight}: Track state of expression building with DP.
+
+\subsection{Dice Throws}
+\textbf{Problem}: Count ways to roll n dice to get total sum.\\
+\textbf{Solution}: Dynamic programming.\\
+\textbf{Time}: O(n*total*faces), \textbf{Space}: O(n*total)\\
+\textbf{Key Insight}: DP[i][j] = sum of DP[i-1][j-k] for all valid k.
+
+\subsection{Juice Bottling}
+\textbf{Problem}: Find optimal way to bottle juice to maximize profit.\\
+\textbf{Solution}: Dynamic programming.\\
+\textbf{Time}: O(n²), \textbf{Space}: O(n)\\
+\textbf{Key Insight}: Try all possible cuts, use DP to find optimal solution.
+
+\section{Graph Algorithms}
+
+\subsection{Knight Connection}
+\textbf{Problem}: Find minimum moves for knight to reach from position a to b.\\
+\textbf{Solution}: BFS with chess board constraints.\\
+\textbf{Time}: O(1), \textbf{Space}: O(1)\\
+\textbf{Key Insight}: Fixed board size makes this O(1), use BFS for shortest path.
+
+\subsection{Dijkstra Algorithm}
+\textbf{Problem}: Find shortest paths from start vertex to all other vertices.\\
+\textbf{Solution}: Dijkstra's algorithm with priority queue.\\
+\textbf{Time}: O((V + E) log V), \textbf{Space}: O(V)\\
+\textbf{Key Insight}: Use priority queue to always process closest unvisited vertex.
+
+\subsection{Topological Sort}
+\textbf{Problem}: Perform topological sort on directed acyclic graph.\\
+\textbf{Solution}: DFS with cycle detection.\\
+\textbf{Time}: O(V + E), \textbf{Space}: O(V)\\
+\textbf{Key Insight}: Use DFS with visiting/visited states to detect cycles.
+
+\subsection{Kruskal Algorithm}
+\textbf{Problem}: Find minimum spanning tree using Kruskal's algorithm.\\
+\textbf{Solution}: Union-Find with sorting.\\
+\textbf{Time}: O(E log E), \textbf{Space}: O(V)\\
+\textbf{Key Insight}: Sort edges, use Union-Find to avoid cycles.
+
+\subsection{Prim Algorithm}
+\textbf{Problem}: Find minimum spanning tree using Prim's algorithm.\\
+\textbf{Solution}: Priority queue with adjacency list.\\
+\textbf{Time}: O(E log V), \textbf{Space}: O(V)\\
+\textbf{Key Insight}: Use priority queue to always add minimum weight edge.
+
+\subsection{Boggle Board}
+\textbf{Problem}: Find all words from dictionary that can be formed on boggle board.\\
+\textbf{Solution}: Trie + DFS.\\
+\textbf{Time}: O(nm * 8\textasciicircum s), \textbf{Space}: O(w*s)\\
+\textbf{Key Insight}: Build trie from words, use DFS to explore all paths.
+
+\subsection{Largest Island}
+\textbf{Problem}: Find size of largest island in binary matrix.\\
+\textbf{Solution}: DFS with area calculation.\\
+\textbf{Time}: O(m*n), \textbf{Space}: O(m*n)\\
+\textbf{Key Insight}: Use DFS to explore connected components, track maximum area.
+
+\section{Linked List Problems}
+
+\subsection{Continuous Median}
+\textbf{Problem}: Maintain running median of stream of numbers.\\
+\textbf{Solution}: Two heaps - max heap for lower half, min heap for upper half.\\
+\textbf{Time}: O(log n) per insertion, \textbf{Space}: O(n)\\
+\textbf{Key Insight}: Keep heaps balanced, median is max of lower heap or average.
+
+\subsection{Find Loop}
+\textbf{Problem}: Detect cycle in linked list and return cycle start node.\\
+\textbf{Solution}: Floyd's Cycle-Finding Algorithm (Tortoise and Hare).\\
+\textbf{Time}: O(n), \textbf{Space}: O(1)\\
+\textbf{Key Insight}: Use two pointers, find meeting point, then find cycle start.
+
+\subsection{Reverse Linked List}
+\textbf{Problem}: Reverse linked list iteratively.\\
+\textbf{Solution}: Three pointers (prev, curr, next).\\
+\textbf{Time}: O(n), \textbf{Space}: O(1)\\
+\textbf{Key Insight}: Update pointers in reverse direction.
+
+\subsection{Merge Linked Lists}
+\textbf{Problem}: Merge two sorted linked lists.\\
+\textbf{Solution}: Compare and link nodes.\\
+\textbf{Time}: O(n + m), \textbf{Space}: O(1)\\
+\textbf{Key Insight}: Compare heads, link smaller one, advance pointer.
+
+\subsection{Shift Linked List}
+\textbf{Problem}: Shift linked list by k positions.\\
+\textbf{Solution}: Find length, adjust k, find new head and tail.\\
+\textbf{Time}: O(n), \textbf{Space}: O(1)\\
+\textbf{Key Insight}: Normalize k, find new head by traversing length-k positions.
+
+\subsection{Lowest Common Manager}
+\textbf{Problem}: Find lowest common manager of two reports in organizational hierarchy.\\
+\textbf{Solution}: DFS with return values.\\
+\textbf{Time}: O(n), \textbf{Space}: O(h)\\
+\textbf{Key Insight}: Return number of reports found, return node when count reaches 2.
+
+\section{String Problems}
+
+\subsection{Interweaving Strings}
+\textbf{Problem}: Check if string three can be formed by interweaving strings one and two.\\
+\textbf{Solution}: DP with memoization.\\
+\textbf{Time}: O(n*m), \textbf{Space}: O(n*m)\\
+\textbf{Key Insight}: Try matching from both strings, memoize results.
+
+\subsection{Solve Sudoku}
+\textbf{Problem}: Solve 9x9 Sudoku puzzle.\\
+\textbf{Solution}: Backtracking with constraint checking.\\
+\textbf{Time}: O(9\textasciicircum (n²)), \textbf{Space}: O(n²)\\
+\textbf{Key Insight}: Try all numbers 1-9, check row/column/box constraints.
+
+\subsection{Generate Div Tags}
+\textbf{Problem}: Generate all valid combinations of opening and closing div tags.\\
+\textbf{Solution}: Backtracking with balance tracking.\\
+\textbf{Time}: O(4\textasciicircum n / sqrt(n)), \textbf{Space}: O(n)\\
+\textbf{Key Insight}: Track open/close count, ensure balance.
+
+\subsection{Ambiguous Measurements}
+\textbf{Problem}: Check if target range can be measured using given measuring cups.\\
+\textbf{Solution}: DP with memoization.\\
+\textbf{Time}: O(n * (high - low)), \textbf{Space}: O(high - low)\\
+\textbf{Key Insight}: Try all cup combinations, memoize results.
+
+\subsection{Longest Substring Without Duplication}
+\textbf{Problem}: Find longest substring without duplicate characters.\\
+\textbf{Solution}: Sliding window with hash set.\\
+\textbf{Time}: O(n), \textbf{Space}: O(min(m, n))\\
+\textbf{Key Insight}: Expand window, shrink when duplicate found.
+
+\subsection{Underscorify Substring}
+\textbf{Problem}: Add underscores around all occurrences of substring in string.\\
+\textbf{Solution}: Find all occurrences and merge overlapping ones.\\
+\textbf{Time}: O(n*m), \textbf{Space}: O(n)\\
+\textbf{Key Insight}: Find locations, collapse overlapping, insert underscores.
+
+\subsection{Pattern Matcher}
+\textbf{Problem}: Check if string matches pattern where x and y can be any strings.\\
+\textbf{Solution}: Try different combinations of x and y.\\
+\textbf{Time}: O(n²), \textbf{Space}: O(n)\\
+\textbf{Key Insight}: Try different lengths for x and y, verify pattern.
+
+\subsection{Multi String Search}
+\textbf{Problem}: Find which small strings are contained in big string.\\
+\textbf{Solution}: Build suffix trie and search.\\
+\textbf{Time}: O(b² + ns), \textbf{Space}: O(b² + ns)\\
+\textbf{Key Insight}: Build trie of all suffixes, search each small string.
+
+\subsection{Longest Most Frequent Prefix}
+\textbf{Problem}: Find longest prefix that appears in most strings.\\
+\textbf{Solution}: Build prefix trie and count occurrences.\\
+\textbf{Time}: O(n*s), \textbf{Space}: O(n*s)\\
+\textbf{Key Insight}: Count prefix occurrences, find longest with majority.
+
+\subsection{Shortest Unique Prefixes}
+\textbf{Problem}: Find shortest unique prefix for each string.\\
+\textbf{Solution}: Build prefix trie and find unique prefixes.\\
+\textbf{Time}: O(n*s), \textbf{Space}: O(n*s)\\
+\textbf{Key Insight}: Stop when count becomes 1 for unique prefix.
+
+\section{Sorting and Searching}
+
+\subsection{Sort K Sorted Array}
+\textbf{Problem}: Sort array where each element is at most k positions away from sorted position.\\
+\textbf{Solution}: Use min heap to maintain k+1 elements.\\
+\textbf{Time}: O(n log k), \textbf{Space}: O(k)\\
+\textbf{Key Insight}: Use heap to maintain sorted window of k+1 elements.
+
+\subsection{Shifted Binary Search}
+\textbf{Problem}: Search for target in shifted sorted array.\\
+\textbf{Solution}: Modified binary search.\\
+\textbf{Time}: O(log n), \textbf{Space}: O(1)\\
+\textbf{Key Insight}: Check if left or right half is sorted, adjust search accordingly.
+
+\subsection{Search for Range}
+\textbf{Problem}: Find first and last occurrence of target in sorted array.\\
+\textbf{Solution}: Binary search for first and last occurrence.\\
+\textbf{Time}: O(log n), \textbf{Space}: O(1)\\
+\textbf{Key Insight}: Use binary search twice - once for first, once for last.
+
+\subsection{Quickselect}
+\textbf{Problem}: Find kth smallest element in unsorted array.\\
+\textbf{Solution}: Quickselect algorithm.\\
+\textbf{Time}: O(n) average, O(n²) worst, \textbf{Space}: O(1)\\
+\textbf{Key Insight}: Use partition from quicksort, recurse on relevant half.
+
+\subsection{Index Equals Value}
+\textbf{Problem}: Find first index where array[index] == index.\\
+\textbf{Solution}: Binary search.\\
+\textbf{Time}: O(log n), \textbf{Space}: O(1)\\
+\textbf{Key Insight}: Use binary search, adjust based on comparison.
+
+\subsection{Quick Sort}
+\textbf{Problem}: Sort array using quicksort algorithm.\\
+\textbf{Solution}: Divide and conquer with pivot selection.\\
+\textbf{Time}: O(n log n) average, O(n²) worst, \textbf{Space}: O(log n)\\
+\textbf{Key Insight}: Choose pivot, partition around it, recurse on halves.
+
+\subsection{Heap Sort}
+\textbf{Problem}: Sort array using heapsort algorithm.\\
+\textbf{Solution}: Build max heap and extract elements.\\
+\textbf{Time}: O(n log n), \textbf{Space}: O(1)\\
+\textbf{Key Insight}: Build max heap, repeatedly extract maximum.
+
+\subsection{Radix Sort}
+\textbf{Problem}: Sort array using radix sort algorithm.\\
+\textbf{Solution}: Sort by each digit from least to most significant.\\
+\textbf{Time}: O(d * (n + k)), \textbf{Space}: O(n + k)\\
+\textbf{Key Insight}: Use counting sort for each digit position.
+
+\chapter{Very Advanced Problems}
+
+\section{Optimization and Resource Allocation}
+
+\subsection{Apartment Hunting}
+\textbf{Problem}: Find optimal block to live in that minimizes maximum distance to all required amenities.\\
+\textbf{Solution}: Calculate minimum distances for each requirement, find block with minimum maximum distance.\\
+\textbf{Time}: O(B * R), \textbf{Space}: O(B * R)\\
+\textbf{Key Insight}: Precompute distances for each requirement, then find minimum of maximums.
+
+\subsection{Calendar Matching}
+\textbf{Problem}: Find available time slots for meeting between two people given their calendars.\\
+\textbf{Solution}: Merge calendars, find gaps between meetings that fit meeting duration.\\
+\textbf{Time}: O(C1 + C2), \textbf{Space}: O(C1 + C2)\\
+\textbf{Key Insight}: Convert times to minutes, merge overlapping meetings, find available gaps.
+
+\subsection{Waterfall Streams}
+\textbf{Problem}: Calculate percentage of water that reaches each position at bottom of 2D waterfall.\\
+\textbf{Solution}: DP approach, track water flow and splitting at blocks.\\
+\textbf{Time}: O(W * H), \textbf{Space}: O(W * H)\\
+\textbf{Key Insight}: Use DP to track water percentages, split water when blocked.
+
+\subsection{Minimum Area Rectangle}
+\textbf{Problem}: Find minimum area of rectangle that can be formed by any four points.\\
+\textbf{Solution}: Try all pairs as diagonal corners, check if other corners exist.\\
+\textbf{Time}: O(N²), \textbf{Space}: O(N)\\
+\textbf{Key Insight}: Use hash set for O(1) corner existence check.
+
+\subsection{Line Through Points}
+\textbf{Problem}: Find maximum number of points that can be placed on single straight line.\\
+\textbf{Solution}: Calculate slopes between all point pairs, find most common slope.\\
+\textbf{Time}: O(N²), \textbf{Space}: O(N)\\
+\textbf{Key Insight}: Use GCD to normalize slopes, count most frequent slope.
+
+\subsection{Right Smaller Than}
+\textbf{Problem}: For each element, count how many elements to its right are smaller.\\
+\textbf{Solution}: Merge sort with inversion counting.\\
+\textbf{Time}: O(N log N), \textbf{Space}: O(N)\\
+\textbf{Key Insight}: Use merge sort to count inversions efficiently.
+
+\section{Tree and Graph Algorithms}
+
+\subsection{Iterative Inorder Traversal}
+\textbf{Problem}: Perform in-order traversal of binary tree using iteration.\\
+\textbf{Solution}: Use stack to simulate recursion.\\
+\textbf{Time}: O(N), \textbf{Space}: O(H)\\
+\textbf{Key Insight}: Use stack to maintain path to current node.
+
+\subsection{Flatten Binary Tree}
+\textbf{Problem}: Flatten binary tree into linked list in pre-order traversal order.\\
+\textbf{Solution}: Recursive approach, connect left subtree between current and right.\\
+\textbf{Time}: O(N), \textbf{Space}: O(H)\\
+\textbf{Key Insight}: Recursively flatten subtrees, insert left between current and right.
+
+\subsection{Right Sibling Tree}
+\textbf{Problem}: Connect each node to its right sibling at same level.\\
+\textbf{Solution}: Level-by-level traversal, connect nodes at each level.\\
+\textbf{Time}: O(N), \textbf{Space}: O(1)\\
+\textbf{Key Insight}: Process each level, connect children to siblings.
+
+\subsection{All Kinds of Node Depths}
+\textbf{Problem}: Calculate sum of depths of all nodes in binary tree.\\
+\textbf{Solution}: Recursive traversal, accumulate depths.\\
+\textbf{Time}: O(N), \textbf{Space}: O(H)\\
+\textbf{Key Insight}: Each node's depth = parent's depth + 1.
+
+\subsection{Compare Leaf Traversal}
+\textbf{Problem}: Compare leaf traversal of two binary trees.\\
+\textbf{Solution}: Get leaf sequences using in-order traversal, compare.\\
+\textbf{Time}: O(N1 + N2), \textbf{Space}: O(H1 + H2)\\
+\textbf{Key Insight}: In-order traversal gives leaf sequence in order.
+
+\subsection{Airport Connections}
+\textbf{Problem}: Find minimum new routes needed to make all airports reachable from starting airport.\\
+\textbf{Solution}: Find strongly connected components, count unreachable ones.\\
+\textbf{Time}: O(A + R), \textbf{Space}: O(A + R)\\
+\textbf{Key Insight}: Use Kosaraju's algorithm to find SCCs.
+
+\subsection{Two-Edge-Connected Graph}
+\textbf{Problem}: Check if graph is 2-edge-connected (removing any edge doesn't disconnect).\\
+\textbf{Solution}: Find bridges using Tarjan's algorithm.\\
+\textbf{Time}: O(V + E), \textbf{Space}: O(V + E)\\
+\textbf{Key Insight}: Graph is 2-edge-connected if it has no bridges.
+
+\section{Dynamic Programming and Optimization}
+
+\subsection{Max Profit With K Transactions}
+\textbf{Problem}: Find maximum profit with at most k transactions.\\
+\textbf{Solution}: DP with state tracking for transactions and days.\\
+\textbf{Time}: O(N * K), \textbf{Space}: O(N * K)\\
+\textbf{Key Insight}: Track max profit before buying for each transaction.
+
+\subsection{Palindrome Partitioning Min Cuts}
+\textbf{Problem}: Find minimum cuts needed to partition string into palindromes.\\
+\textbf{Solution}: Build palindrome table, use DP to find minimum cuts.\\
+\textbf{Time}: O(N²), \textbf{Space}: O(N²)\\
+\textbf{Key Insight}: Precompute all palindromes, then find minimum cuts.
+
+\subsection{Longest Increasing Subsequence}
+\textbf{Problem}: Find length of longest strictly increasing subsequence.\\
+\textbf{Solution}: Patience sorting algorithm with binary search.\\
+\textbf{Time}: O(N log N), \textbf{Space}: O(N)\\
+\textbf{Key Insight}: Use binary search to find optimal position for each element.
+
+\subsection{Longest String Chain}
+\textbf{Problem}: Find length of longest word chain where each word is formed by adding one letter.\\
+\textbf{Solution}: Sort by length, use DP to find longest chain.\\
+\textbf{Time}: O(N * L²), \textbf{Space}: O(N)\\
+\textbf{Key Insight}: Try removing each character to find predecessor.
+
+\subsection{Square of Zeroes}
+\textbf{Problem}: Find largest square of zeroes in binary matrix.\\
+\textbf{Solution}: DP to track consecutive zeros right and below.\\
+\textbf{Time}: O(N³), \textbf{Space}: O(N²)\\
+\textbf{Key Insight}: Precompute consecutive zeros, then check square formation.
+
+\subsection{Number of Binary Tree Topologies}
+\textbf{Problem}: Calculate number of different binary tree topologies with n nodes.\\
+\textbf{Solution}: DP with Catalan number pattern.\\
+\textbf{Time}: O(N²), \textbf{Space}: O(N)\\
+\textbf{Key Insight}: Use Catalan number formula: C(n) = sum(C(i) * C(n-1-i)).
+
+\subsection{Non-Attacking Queens}
+\textbf{Problem}: Find number of ways to place n queens on n×n board without attacks.\\
+\textbf{Solution}: Backtracking with pruning.\\
+\textbf{Time}: O(N!), \textbf{Space}: O(N)\\
+\textbf{Key Insight}: Use backtracking with row, column, and diagonal checks.
+
+\section{Advanced String Algorithms}
+
+\subsection{Knuth-Morris-Pratt Algorithm}
+\textbf{Problem}: Find all occurrences of substring in string using KMP algorithm.\\
+\textbf{Solution}: Build failure function, use it to skip unnecessary comparisons.\\
+\textbf{Time}: O(N + M), \textbf{Space}: O(M)\\
+\textbf{Key Insight}: Use failure function to avoid recomparing known matches.
+
+\subsection{Smallest Substring Containing}
+\textbf{Problem}: Find smallest substring containing all characters from small string.\\
+\textbf{Solution}: Sliding window with character counting.\\
+\textbf{Time}: O(N + M), \textbf{Space}: O(M)\\
+\textbf{Key Insight}: Use sliding window to find minimum valid substring.
+
+\subsection{Longest Balanced Substring}
+\textbf{Problem}: Find length of longest balanced substring (equal brackets).\\
+\textbf{Solution}: Stack-based approach with index tracking.\\
+\textbf{Time}: O(N), \textbf{Space}: O(N)\\
+\textbf{Key Insight}: Use stack to track unmatched opening brackets.
+
+\subsection{Strings Made Up Of Strings}
+\textbf{Problem}: Check if big string can be constructed by concatenating small strings.\\
+\textbf{Solution}: DP with string matching.\\
+\textbf{Time}: O(N * M), \textbf{Space}: O(N)\\
+\textbf{Key Insight}: Use DP to track if each position can be reached.
+
+\section{Graph and Pathfinding Algorithms}
+
+\subsection{A* Algorithm}
+\textbf{Problem}: Find shortest path from start to goal in grid using A* search.\\
+\textbf{Solution}: Priority queue with heuristic function.\\
+\textbf{Time}: O(N log N), \textbf{Space}: O(N)\\
+\textbf{Key Insight}: Use Manhattan distance heuristic with priority queue.
+
+\subsection{Rectangle Mania}
+\textbf{Problem}: Count number of rectangles that can be formed by given coordinates.\\
+\textbf{Solution}: Try all pairs as diagonal corners, check if other corners exist.\\
+\textbf{Time}: O(N²), \textbf{Space}: O(N)\\
+\textbf{Key Insight}: Use hash set for O(1) corner existence check.
+
+\subsection{Detect Arbitrage}
+\textbf{Problem}: Detect arbitrage opportunity in currency exchange rate matrix.\\
+\textbf{Solution}: Convert to logarithms, use Floyd-Warshall to find negative cycles.\\
+\textbf{Time}: O(N³), \textbf{Space}: O(N²)\\
+\textbf{Key Insight}: Convert multiplication to addition using logarithms.
+
+\section{Advanced Data Structures}
+
+\subsection{LRU Cache}
+\textbf{Problem}: Implement Least Recently Used cache with O(1) operations.\\
+\textbf{Solution}: Hash map with doubly linked list.\\
+\textbf{Time}: O(1), \textbf{Space}: O(C)\\
+\textbf{Key Insight}: Use hash map for O(1) access, doubly linked list for ordering.
+
+\subsection{Continuous Median}
+\textbf{Problem}: Maintain running median of stream of numbers.\\
+\textbf{Solution}: Two heaps - max heap for lower half, min heap for upper half.\\
+\textbf{Time}: O(log N) per insertion, \textbf{Space}: O(N)\\
+\textbf{Key Insight}: Keep heaps balanced, median is max of lower heap or average.
+
+\subsection{Merge Sorted Arrays}
+\textbf{Problem}: Merge multiple sorted arrays into single sorted array.\\
+\textbf{Solution}: Min heap to merge arrays efficiently.\\
+\textbf{Time}: O(N log K), \textbf{Space}: O(N)\\
+\textbf{Key Insight}: Use heap to always process smallest element.
+
+\section{Linked List Algorithms}
+
+\subsection{Rearrange Linked List}
+\textbf{Problem}: Rearrange list so all nodes < k come before = k, which come before > k.\\
+\textbf{Solution}: Create three separate lists, then connect them.\\
+\textbf{Time}: O(N), \textbf{Space}: O(1)\\
+\textbf{Key Insight}: Use three pointers to maintain separate lists.
+
+\subsection{Linked List Palindrome}
+\textbf{Problem}: Check if linked list is palindrome.\\
+\textbf{Solution}: Find middle, reverse second half, compare, restore.\\
+\textbf{Time}: O(N), \textbf{Space}: O(1)\\
+\textbf{Key Insight}: Use fast/slow pointers to find middle, reverse second half.
+
+\subsection{Zip Linked List}
+\textbf{Problem}: Rearrange list in zip pattern: first, last, second, second-to-last, etc.\\
+\textbf{Solution}: Find middle, reverse second half, merge in zip pattern.\\
+\textbf{Time}: O(N), \textbf{Space}: O(1)\\
+\textbf{Key Insight}: Reverse second half, then merge alternating nodes.
+
+\subsection{Node Swap}
+\textbf{Problem}: Swap every two adjacent nodes in linked list.\\
+\textbf{Solution}: Iterative approach with three pointers.\\
+\textbf{Time}: O(N), \textbf{Space}: O(1)\\
+\textbf{Key Insight}: Use dummy node to handle head case, swap pairs.
+
+\section{Advanced Sorting and Searching}
+
+\subsection{Median of Two Sorted Arrays}
+\textbf{Problem}: Find median of two sorted arrays.\\
+\textbf{Solution}: Binary search on partition points.\\
+\textbf{Time}: O(log(min(M, N))), \textbf{Space}: O(1)\\
+\textbf{Key Insight}: Use binary search to find correct partition.
+
+\subsection{Optimal Assembly Line}
+\textbf{Problem}: Assign tasks to workers to minimize maximum time any worker spends.\\
+\textbf{Solution}: Binary search on maximum time with feasibility check.\\
+\textbf{Time}: O(N * log(SUM)), \textbf{Space}: O(1)\\
+\textbf{Key Insight}: Use binary search to find minimum feasible maximum time.
+
+\subsection{Merge Sort}
+\textbf{Problem}: Sort array using merge sort algorithm.\\
+\textbf{Solution}: Divide and conquer with merging.\\
+\textbf{Time}: O(N log N), \textbf{Space}: O(N)\\
+\textbf{Key Insight}: Recursively sort halves, then merge sorted halves.
+
+\subsection{Count Inversions}
+\textbf{Problem}: Count number of inversions in array.\\
+\textbf{Solution}: Merge sort with inversion counting.\\
+\textbf{Time}: O(N log N), \textbf{Space}: O(N)\\
+\textbf{Key Insight}: Count inversions during merge step of merge sort.
+
+\section{Geometric and Matrix Algorithms}
+
+\subsection{Largest Park}
+\textbf{Problem}: Find largest rectangular area for park surrounded by buildings.\\
+\textbf{Solution}: Largest rectangle in histogram for each row.\\
+\textbf{Time}: O(R * C), \textbf{Space}: O(C)\\
+\textbf{Key Insight}: Use histogram approach for each row.
+
+\subsection{Water Area}
+\textbf{Problem}: Calculate total water area trapped between bars.\\
+\textbf{Solution}: Two-pointer approach with left/right max tracking.\\
+\textbf{Time}: O(N), \textbf{Space}: O(1)\\
+\textbf{Key Insight}: Water trapped = min(left\_max, right\_max) - height.
+
+\subsection{Laptop Rentals}
+\textbf{Problem}: Find minimum number of laptops needed for rental times.\\
+\textbf{Solution}: Sort start/end times, use two pointers.\\
+\textbf{Time}: O(N log N), \textbf{Space}: O(N)\\
+\textbf{Key Insight}: Track overlapping intervals, count maximum simultaneous rentals.
+
+\subsection{Shorten Path}
+\textbf{Problem}: Shorten Unix-style file path by resolving . and .. components.\\
+\textbf{Solution}: Stack-based approach.\\
+\textbf{Time}: O(N), \textbf{Space}: O(N)\\
+\textbf{Key Insight}: Use stack to handle directory navigation.
+
+\section{Advanced Optimization Problems}
+
+\subsection{Max Sum Increasing Subsequence}
+\textbf{Problem}: Find maximum sum of increasing subsequence.\\
+\textbf{Solution}: DP with binary search optimization.\\
+\textbf{Time}: O(N log N), \textbf{Space}: O(N)\\
+\textbf{Key Insight}: Use binary search to find optimal position for each element.
+
+\subsection{Longest Common Subsequence}
+\textbf{Problem}: Find length of longest common subsequence between two strings.\\
+\textbf{Solution}: Dynamic programming matrix.\\
+\textbf{Time}: O(M * N), \textbf{Space}: O(M * N)\\
+\textbf{Key Insight}: DP[i][j] = max(DP[i-1][j], DP[i][j-1]) or DP[i-1][j-1] + 1 if match.
+
+\subsection{Min Number of Jumps}
+\textbf{Problem}: Find minimum jumps needed to reach end of array.\\
+\textbf{Solution}: Greedy algorithm with reach tracking.\\
+\textbf{Time}: O(N), \textbf{Space}: O(1)\\
+\textbf{Key Insight}: Track current reach and max reach, jump when current reach is exhausted.
+
+\subsection{Knapsack Problem}
+\textbf{Problem}: Solve 0/1 knapsack problem.\\
+\textbf{Solution}: Dynamic programming.\\
+\textbf{Time}: O(N * capacity), \textbf{Space}: O(N * capacity)\\
+\textbf{Key Insight}: DP[i][w] = max(DP[i-1][w], DP[i-1][w-weight[i]] + value[i]).
+
+\subsection{Disk Stacking}
+\textbf{Problem}: Find maximum height by stacking disks.\\
+\textbf{Solution}: DP with sorting.\\
+\textbf{Time}: O(N²), \textbf{Space}: O(N)\\
+\textbf{Key Insight}: Sort by dimensions, use DP to find optimal stacking.
+
+\subsection{Numbers in Pi}
+\textbf{Problem}: Find minimum spaces needed to separate pi into valid numbers.\\
+\textbf{Solution}: DP with memoization.\\
+\textbf{Time}: O(N³ + M), \textbf{Space}: O(N + M)\\
+\textbf{Key Insight}: Try all possible prefixes, memoize results.
+
+\subsection{Maximize Expression}
+\textbf{Problem}: Maximize A - B + C - D where A,B,C,D are array elements.\\
+\textbf{Solution}: DP with state tracking.\\
+\textbf{Time}: O(N), \textbf{Space}: O(1)\\
+\textbf{Key Insight}: Track state of expression building with DP.
+
+\subsection{Dice Throws}
+\textbf{Problem}: Count ways to roll n dice to get total sum.\\
+\textbf{Solution}: Dynamic programming.\\
+\textbf{Time}: O(N * total * faces), \textbf{Space}: O(N * total)\\
+\textbf{Key Insight}: DP[i][j] = sum of DP[i-1][j-k] for all valid k.
+
+\subsection{Juice Bottling}
+\textbf{Problem}: Find optimal way to bottle juice to maximize profit.\\
+\textbf{Solution}: Dynamic programming.\\
+\textbf{Time}: O(N²), \textbf{Space}: O(N)\\
+\textbf{Key Insight}: Try all possible cuts, use DP to find optimal solution.
+
+\section{Advanced Tree Problems}
+
+\subsection{Same BSTs}
+\textbf{Problem}: Check if two arrays represent same BST.\\
+\textbf{Solution}: Recursive comparison with BST property.\\
+\textbf{Time}: O(N²) worst, \textbf{Space}: O(D)\\
+\textbf{Key Insight}: Compare roots, then recursively compare left and right subtrees.
+
+\subsection{Validate Three Nodes}
+\textbf{Problem}: Check if node\_two is descendant of node\_one and node\_three is descendant of node\_two.\\
+\textbf{Solution}: Check both directions of the relationship.\\
+\textbf{Time}: O(H), \textbf{Space}: O(1)\\
+\textbf{Key Insight}: Search from both nodes to find the relationship.
+
+\subsection{Repair BST}
+\textbf{Problem}: Repair BST where exactly two nodes have been swapped.\\
+\textbf{Solution}: Inorder traversal to find swapped nodes.\\
+\textbf{Time}: O(N), \textbf{Space}: O(H)\\
+\textbf{Key Insight}: Inorder traversal reveals swapped nodes in sorted sequence.
+
+\subsection{Sum BSTs}
+\textbf{Problem}: Calculate sum of all values in BST.\\
+\textbf{Solution}: Recursive traversal.\\
+\textbf{Time}: O(N), \textbf{Space}: O(H)\\
+\textbf{Key Insight}: Simple recursive sum of current node and subtrees.
+
+\subsection{Max Path Sum in Binary Tree}
+\textbf{Problem}: Find maximum path sum in binary tree.\\
+\textbf{Solution}: Recursive DFS with path tracking.\\
+\textbf{Time}: O(N), \textbf{Space}: O(H)\\
+\textbf{Key Insight}: At each node, consider path through node or max of left/right subtree.
+
+\subsection{Find Nodes Distance K}
+\textbf{Problem}: Find all nodes at distance k from target node.\\
+\textbf{Solution}: BFS from target with distance tracking.\\
+\textbf{Time}: O(N), \textbf{Space}: O(N)\\
+\textbf{Key Insight}: Build parent map, use BFS to explore all directions.
+
+\section{Advanced Matrix and Array Problems}
+
+\subsection{Count Squares}
+\textbf{Problem}: Count number of squares of 1s in binary matrix.\\
+\textbf{Solution}: DP - each cell represents size of largest square ending there.\\
+\textbf{Time}: O(M * N), \textbf{Space}: O(M * N)\\
+\textbf{Key Insight}: DP[i][j] = min(DP[i-1][j], DP[i][j-1], DP[i-1][j-1]) + 1.
+
+\subsection{Maximum Sum Submatrix}
+\textbf{Problem}: Find maximum sum of submatrix of given size.\\
+\textbf{Solution}: 2D sliding window with prefix sums.\\
+\textbf{Time}: O(M * N), \textbf{Space}: O(M * N)\\
+\textbf{Key Insight}: Use prefix sums to calculate submatrix sums in O(1).
+
+\subsection{Largest Rectangle Under Skyline}
+\textbf{Problem}: Find area of largest rectangle under skyline.\\
+\textbf{Solution}: Stack-based approach to track increasing heights.\\
+\textbf{Time}: O(N), \textbf{Space}: O(N)\\
+\textbf{Key Insight}: Use stack to maintain increasing heights, calculate area when popping.
+
+\subsection{Longest Subarray with Sum}
+\textbf{Problem}: Find longest subarray that sums to target.\\
+\textbf{Solution}: Use hash table to store cumulative sums.\\
+\textbf{Time}: O(N), \textbf{Space}: O(N)\\
+\textbf{Key Insight}: If sum[i] - sum[j] = target, subarray j+1 to i sums to target.
+
+\subsection{Knight Connection}
+\textbf{Problem}: Find minimum moves for knight to reach from position a to b.\\
+\textbf{Solution}: BFS with chess board constraints.\\
+\textbf{Time}: O(1), \textbf{Space}: O(1)\\
+\textbf{Key Insight}: Fixed board size makes this O(1), use BFS for shortest path.
+
+\section{Advanced String and Pattern Matching}
+
+\subsection{Interweaving Strings}
+\textbf{Problem}: Check if string three can be formed by interweaving strings one and two.\\
+\textbf{Solution}: DP with memoization.\\
+\textbf{Time}: O(N * M), \textbf{Space}: O(N * M)\\
+\textbf{Key Insight}: Try matching from both strings, memoize results.
+
+\subsection{Solve Sudoku}
+\textbf{Problem}: Solve 9×9 Sudoku puzzle.\\
+\textbf{Solution}: Backtracking with constraint checking.\\
+\textbf{Time}: O(9\textasciicircum (N²)), \textbf{Space}: O(N²)\\
+\textbf{Key Insight}: Try all numbers 1-9, check row/column/box constraints.
+
+\subsection{Generate Div Tags}
+\textbf{Problem}: Generate all valid combinations of opening and closing div tags.\\
+\textbf{Solution}: Backtracking with balance tracking.\\
+\textbf{Time}: O(4\textasciicircum N / sqrt(N)), \textbf{Space}: O(N)\\
+\textbf{Key Insight}: Track open/close count, ensure balance.
+
+\subsection{Ambiguous Measurements}
+\textbf{Problem}: Check if target range can be measured using given measuring cups.\\
+\textbf{Solution}: DP with memoization.\\
+\textbf{Time}: O(N * (high - low)), \textbf{Space}: O(high - low)\\
+\textbf{Key Insight}: Try all cup combinations, memoize results.
+
+\end{document}
